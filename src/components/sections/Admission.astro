@@ -1,0 +1,31 @@
+---
+import { getLangFromUrl, useTranslations } from '../../i18n/ui';
+import AdmissionForm from '../vue/AdmissionForm.vue';
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<section class="bg-primary py-20 lg:py-28 text-white">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="grid gap-12 lg:grid-cols-2 items-center">
+      <div>
+        <h2 class="font-display text-3xl font-semibold sm:text-4xl">{t.admission.title}</h2>
+        <p class="mt-4 text-base leading-relaxed text-white/80 sm:text-lg">
+          {t.admission.description}
+        </p>
+        <p class="mt-4 text-sm text-white/70">
+          {t.admission.info}
+        </p>
+        <div class="mt-8 flex flex-wrap gap-4">
+          <a href={lang === 'en' ? '/en/contact' : '/contact'} class="inline-flex items-center rounded-full bg-accent px-6 py-3 text-sm font-semibold text-text transition hover:opacity-90">
+            {t.admission.seatBtn}
+          </a>
+          <a href="https://wa.me/" class="inline-flex items-center rounded-full border border-white/40 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/10">
+            {t.admission.waBtn}
+          </a>
+        </div>
+      </div>
+      <AdmissionForm client:load locale={lang} />
+    </div>
+  </div>
+</section>

@@ -1,0 +1,27 @@
+{
+  "name": "cac-montessori-madiun",
+  "type": "module",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=22.23.4"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "typecheck": "astro check"
+  },
+  "dependencies": {
+    "astro": "^7.4.4",
+    "@astrojs/vue": "^7.1.2",
+    "vue": "^3.5.44",
+    "tailwindcss": "^4.3.3",
+    "@tailwindcss/vite": "^4.3.3",
+    "@lucide/vue": "^1.64.0",
+    "@vueuse/core": "^15.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^7.0.2"
+  }
+}

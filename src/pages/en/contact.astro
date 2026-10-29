@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Navbar from '../../components/layout/Navbar.astro';
+import Footer from '../../components/layout/Footer.astro';
+import Admission from '../../components/sections/Admission.astro';
+import FinalCTA from '../../components/sections/FinalCTA.astro';
+import { useTranslations } from '../../i18n/ui';
+const t = useTranslations('en');
+---
+
+<BaseLayout title={t.pages.contactTitle} description={t.pages.contactDesc} canonical="/en/contact">
+  <Navbar />
+  <main class="pt-28">
+    <section class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-16">
+      <h1 class="font-display text-4xl font-semibold text-text">{t.pages.contactHeading}</h1>
+      <p class="mt-6 text-base leading-relaxed text-text-muted">{t.pages.contactP}</p>
+    </section>
+    <Admission />
+    <FinalCTA />
+  </main>
+  <Footer />
+</BaseLayout>

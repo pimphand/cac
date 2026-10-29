@@ -1,0 +1,34 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/layout/Navbar.astro';
+import Footer from '../components/layout/Footer.astro';
+import Philosophy from '../components/sections/Philosophy.astro';
+import FinalCTA from '../components/sections/FinalCTA.astro';
+---
+
+<BaseLayout title="About Us — CAC Montessori Madiun" description="Filosofi pendidikan, lingkungan belajar, dan pendekatan CAC Montessori Madiun." canonical="/about">
+  <Navbar />
+  <main class="pt-28">
+    <section class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-16">
+      <h1 class="font-display text-4xl font-semibold text-text">Tentang CAC Montessori Madiun</h1>
+      <p class="mt-6 text-base leading-relaxed text-text-muted">
+        CAC Montessori Madiun (Curious Angels Club) merupakan playschool berbasis Montessori untuk anak usia 1–6 tahun yang menghadirkan lingkungan belajar yang aman, hangat, dan mendukung perkembangan anak sesuai dengan ritme serta kebutuhan masing-masing.
+      </p>
+      <h2 class="mt-10 font-display text-2xl font-semibold text-text">Filosofi Pendidikan</h2>
+      <p class="mt-4 text-base leading-relaxed text-text-muted">
+        Kami percaya setiap anak memiliki cara, minat, dan waktu berkembang yang berbeda. Melalui pendekatan Montessori, kami memberikan ruang bagi anak untuk bereksplorasi, mencoba, dan tumbuh dengan rasa percaya diri.
+      </p>
+      <h2 class="mt-10 font-display text-2xl font-semibold text-text">Lingkungan Belajar</h2>
+      <p class="mt-4 text-base leading-relaxed text-text-muted">
+        Lingkungan belajar yang disiapkan agar anak dapat beraktivitas secara mandiri, dengan material Montessori yang dirancang untuk mendukung perkembangan sensorik, kognitif, dan sosial.
+      </p>
+      <h2 class="mt-10 font-display text-2xl font-semibold text-text">Peran Pendidik</h2>
+      <p class="mt-4 text-base leading-relaxed text-text-muted">
+        Pendidik berperan sebagai pendamping yang menghargai ritme masing-masing anak, menyiapkan lingkungan, dan mendukung kemandirian serta rasa ingin tahu.
+      </p>
+    </section>
+    <Philosophy />
+    <FinalCTA />
+  </main>
+  <Footer />
+</BaseLayout>

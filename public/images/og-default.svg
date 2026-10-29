@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#FDF8EF"/>
+  <circle cx="600" cy="280" r="140" fill="#A83FC6" opacity="0.15"/>
+  <circle cx="600" cy="280" r="70" fill="#F0A51B" opacity="0.6"/>
+  <text x="600" y="500" text-anchor="middle" font-family="serif" font-size="48" font-weight="600" fill="#39313B">CAC Montessori Madiun</text>
+</svg>

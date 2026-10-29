@@ -1,0 +1,33 @@
+---
+import { getLangFromUrl, useTranslations } from '../../i18n/ui';
+import MontessoriPrinciples from '../vue/MontessoriPrinciples.vue';
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<section class="bg-surface py-20 lg:py-28">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="grid items-center gap-12 lg:grid-cols-2">
+      <div>
+        <h2 class="font-display text-3xl font-semibold text-text sm:text-4xl">{t.montessori.title}</h2>
+        <p class="mt-4 text-base leading-relaxed text-text-muted sm:text-lg">
+          {t.montessori.description}
+        </p>
+        <div class="mt-8">
+          <MontessoriPrinciples client:visible principles={t.montessori.principles} />
+        </div>
+      </div>
+      <div class="relative">
+        <div class="absolute -inset-3 rounded-[2rem] bg-accent/20 rotate-2"></div>
+        <img
+          src="/images/classroom-activity.svg"
+          alt={t.montessori.alt}
+          width="640"
+          height="760"
+          loading="lazy"
+          class="relative rounded-[2rem] object-cover shadow-xl"
+        />
+      </div>
+    </div>
+  </div>
+</section>

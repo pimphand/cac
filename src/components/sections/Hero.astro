@@ -1,0 +1,47 @@
+---
+import { getLangFromUrl, useTranslations } from '../../i18n/ui';
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<section class="relative overflow-hidden bg-background pt-28 pb-16 lg:pt-36 lg:pb-24">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="grid items-center gap-12 lg:grid-cols-12">
+      <div class="lg:col-span-6">
+        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-primary">{t.hero.eyebrow}</p>
+        <h1 class="mt-4 font-display text-4xl font-semibold leading-tight text-text sm:text-5xl lg:text-6xl">
+          {t.hero.headline}
+        </h1>
+        <p class="mt-6 max-w-xl text-base leading-relaxed text-text-muted sm:text-lg">
+          {t.hero.description}
+        </p>
+        <div class="mt-8 flex flex-wrap gap-4">
+          <a href={lang === 'en' ? '/en/programs' : '/programs'} class="inline-flex items-center rounded-full bg-primary px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-primary-hover">
+            {t.hero.ctaPrimary}
+          </a>
+          <a href={lang === 'en' ? '/en/contact' : '/contact'} class="inline-flex items-center rounded-full border border-primary px-6 py-3 text-sm font-semibold text-primary transition hover:bg-soft-yellow">
+            {t.hero.ctaSecondary}
+          </a>
+        </div>
+        <p class="mt-6 text-sm italic text-text-muted">{t.hero.supporting}</p>
+      </div>
+
+      <div class="relative lg:col-span-6">
+        <div class="relative mx-auto max-w-lg">
+          <div class="absolute -inset-4 rounded-[2rem] bg-soft-yellow/60 -rotate-2"></div>
+          <img
+            src="/images/hero-montessori.svg"
+            alt={t.hero.alt}
+            width="640"
+            height="760"
+            class="relative rounded-[2rem] object-cover shadow-xl"
+            loading="eager"
+          />
+          <span class="absolute -bottom-4 -left-4 rounded-full bg-primary px-4 py-2 text-xs font-semibold text-white shadow-md">
+            {t.hero.badge}
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

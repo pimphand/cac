@@ -1,0 +1,20 @@
+---
+import { getLangFromUrl, useTranslations } from '../../i18n/ui';
+import GalleryGrid from '../vue/GalleryGrid.vue';
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<section class="bg-surface py-20 lg:py-28">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="max-w-2xl">
+      <h2 class="font-display text-3xl font-semibold text-text sm:text-4xl">{t.gallery.title}</h2>
+      <p class="mt-4 text-base leading-relaxed text-text-muted sm:text-lg">
+        {t.gallery.description}
+      </p>
+    </div>
+    <div class="mt-12">
+      <GalleryGrid client:visible images={t.gallery.images} closeLabel={t.gallery.close} prevLabel={t.gallery.prev} nextLabel={t.gallery.next} />
+    </div>
+  </div>
+</section>

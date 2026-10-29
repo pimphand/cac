@@ -1,0 +1,55 @@
+---
+import '../styles/global.css';
+import WhatsAppButton from '../components/vue/WhatsAppButton.vue';
+import { getLangFromUrl } from '../i18n/ui';
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonical?: string;
+  ogImage?: string;
+}
+
+const lang = getLangFromUrl(Astro.url);
+
+const {
+  title = 'CAC Montessori Madiun — A Nurturing Montessori Playschool',
+  description = 'CAC Montessori Madiun merupakan playschool berbasis Montessori untuk anak usia 1–6 tahun yang menghadirkan lingkungan belajar yang aman, hangat, dan mendukung perkembangan anak.',
+  canonical,
+  ogImage = '/images/og-default.svg',
+} = Astro.props;
+
+const siteUrl = import.meta.env.PUBLIC_SITE_URL || 'https://cacmontessorimadiun.example';
+const canonicalUrl = canonical ? `${siteUrl}${canonical}` : `${siteUrl}${Astro.url.pathname}`;
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={`${siteUrl}${ogImage}`} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&display=swap"
+      rel="stylesheet"
+    />
+    <slot name="head" />
+  </head>
+  <body class="min-h-screen bg-background text-text antialiased">
+    <slot />
+    <WhatsAppButton client:idle locale={lang} />
+  </body>
+</html>

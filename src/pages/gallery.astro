@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/layout/Navbar.astro';
+import Footer from '../components/layout/Footer.astro';
+import Gallery from '../components/sections/Gallery.astro';
+import FinalCTA from '../components/sections/FinalCTA.astro';
+---
+
+<BaseLayout title="Gallery — CAC Montessori Madiun" description="Galeri foto aktivitas dan lingkungan belajar CAC Montessori Madiun." canonical="/gallery">
+  <Navbar />
+  <main class="pt-28">
+    <section class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-16">
+      <h1 class="font-display text-4xl font-semibold text-text">Gallery</h1>
+      <p class="mt-6 text-base leading-relaxed text-text-muted">
+        Galeri foto responsif dengan kategori dan lightbox interaktif.
+      </p>
+    </section>
+    <Gallery />
+    <FinalCTA />
+  </main>
+  <Footer />
+</BaseLayout>

@@ -1,0 +1,42 @@
+---
+import { getLangFromUrl, useTranslations } from '../../i18n/ui';
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<section class="bg-surface py-20 lg:py-28">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="max-w-2xl">
+      <h2 class="font-display text-3xl font-semibold text-text sm:text-4xl">{t.philosophy.title}</h2>
+      <p class="mt-4 text-base leading-relaxed text-text-muted sm:text-lg">
+        {t.philosophy.description}
+      </p>
+    </div>
+
+    <div class="mt-12 grid gap-6 md:grid-cols-3">
+      <article class="rounded-3xl border border-border bg-background p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+        <div class="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        </div>
+        <h3 class="mt-5 font-display text-xl font-semibold text-text">{t.philosophy.independence}</h3>
+        <p class="mt-3 text-sm leading-relaxed text-text-muted">{t.philosophy.independenceDesc}</p>
+      </article>
+
+      <article class="rounded-3xl border border-border bg-background p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+        <div class="flex h-12 w-12 items-center justify-center rounded-full bg-accent/15 text-accent">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        </div>
+        <h3 class="mt-5 font-display text-xl font-semibold text-text">{t.philosophy.curiosity}</h3>
+        <p class="mt-3 text-sm leading-relaxed text-text-muted">{t.philosophy.curiosityDesc}</p>
+      </article>
+
+      <article class="rounded-3xl border border-border bg-background p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+        <div class="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <h3 class="mt-5 font-display text-xl font-semibold text-text">{t.philosophy.respect}</h3>
+        <p class="mt-3 text-sm leading-relaxed text-text-muted">{t.philosophy.respectDesc}</p>
+      </article>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,24 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/layout/Navbar.astro';
+import Footer from '../components/layout/Footer.astro';
+import Programs from '../components/sections/Programs.astro';
+import FAQ from '../components/sections/FAQ.astro';
+import FinalCTA from '../components/sections/FinalCTA.astro';
+---
+
+<BaseLayout title="Our Programs — CAC Montessori Madiun" description="Program Toddler, Preschool, dan Individualized Learning CAC Montessori Madiun." canonical="/programs">
+  <Navbar />
+  <main class="pt-28">
+    <section class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-16">
+      <h1 class="font-display text-4xl font-semibold text-text">Our Programs</h1>
+      <p class="mt-6 text-base leading-relaxed text-text-muted">
+        Program dirancang sesuai tahap perkembangan anak. Detail kurikulum dapat disesuaikan dengan kebijakan sekolah.
+      </p>
+    </section>
+    <Programs />
+    <FAQ />
+    <FinalCTA />
+  </main>
+  <Footer />
+</BaseLayout>

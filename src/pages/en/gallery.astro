@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Navbar from '../../components/layout/Navbar.astro';
+import Footer from '../../components/layout/Footer.astro';
+import Gallery from '../../components/sections/Gallery.astro';
+import FinalCTA from '../../components/sections/FinalCTA.astro';
+import { useTranslations } from '../../i18n/ui';
+const t = useTranslations('en');
+---
+
+<BaseLayout title={t.pages.galleryTitle} description={t.pages.galleryDesc} canonical="/en/gallery">
+  <Navbar />
+  <main class="pt-28">
+    <section class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-16">
+      <h1 class="font-display text-4xl font-semibold text-text">{t.pages.galleryHeading}</h1>
+      <p class="mt-6 text-base leading-relaxed text-text-muted">{t.pages.galleryP}</p>
+    </section>
+    <Gallery />
+    <FinalCTA />
+  </main>
+  <Footer />
+</BaseLayout>

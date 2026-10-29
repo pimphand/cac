@@ -1,0 +1,55 @@
+---
+import { getLangFromUrl, useTranslations } from '../../i18n/ui';
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const year = new Date().getFullYear();
+const homeHref = lang === 'en' ? '/en/' : '/';
+---
+
+<footer class="bg-soft-yellow/60 border-t border-border">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+    <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+      <div>
+        <img src="/images/logo.svg" alt="Logo CAC Montessori Madiun" width="140" height="42" class="h-10 w-auto" />
+        <p class="mt-4 text-sm text-text-muted leading-relaxed">{t.footer.description}</p>
+      </div>
+
+      <div>
+        <h3 class="font-display text-base font-semibold text-text">{t.footer.nav}</h3>
+        <ul class="mt-4 space-y-2 text-sm">
+          <li><a href={homeHref} class="text-text-muted hover:text-primary">Home</a></li>
+          <li><a href={lang === 'en' ? '/en/about' : '/about'} class="text-text-muted hover:text-primary">About Us</a></li>
+          <li><a href={lang === 'en' ? '/en/programs' : '/programs'} class="text-text-muted hover:text-primary">Our Programs</a></li>
+          <li><a href={lang === 'en' ? '/en/montessori' : '/montessori'} class="text-text-muted hover:text-primary">Montessori Approach</a></li>
+          <li><a href={lang === 'en' ? '/en/gallery' : '/gallery'} class="text-text-muted hover:text-primary">Gallery</a></li>
+          <li><a href={lang === 'en' ? '/en/contact' : '/contact'} class="text-text-muted hover:text-primary">Contact & Admission</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="font-display text-base font-semibold text-text">{t.footer.contact}</h3>
+        <ul class="mt-4 space-y-2 text-sm text-text-muted">
+          <li>{t.footer.contactInfo}</li>
+          <li>{t.footer.whatsapp}</li>
+          <li>{t.footer.address}</li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="font-display text-base font-semibold text-text">{t.footer.social}</h3>
+        <ul class="mt-4 space-y-2 text-sm text-text-muted">
+          <li>{t.footer.instagram}</li>
+          <li>{t.footer.whatsappSocial}</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-12 border-t border-border pt-6 flex flex-col gap-3 md:flex-row md:items-center md:justify-between text-xs text-text-muted">
+      <p>&copy; {year} CAC Montessori Madiun. {t.footer.copyright}</p>
+      <div class="flex gap-4">
+        <a href={lang === 'en' ? '/en/privacy' : '/privacy'} class="hover:text-primary">{t.footer.privacy}</a>
+        <span>{t.footer.disclaimer}</span>
+      </div>
+    </div>
+  </div>
+</footer>

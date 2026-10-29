@@ -1,0 +1,65 @@
+---
+import MobileMenu from '../vue/MobileMenu.vue';
+import { getLangFromUrl, useTranslations } from '../../i18n/ui';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const otherLang = lang === 'id' ? 'en' : 'id';
+const otherLangHref = lang === 'id' ? '/en/' : '/';
+
+const navLinks = [
+  { label: t.nav.home, href: lang === 'en' ? '/en/' : '/' },
+  { label: t.nav.about, href: lang === 'en' ? '/en/about' : '/about' },
+  { label: t.nav.programs, href: lang === 'en' ? '/en/programs' : '/programs' },
+  { label: t.nav.montessori, href: lang === 'en' ? '/en/montessori' : '/montessori' },
+  { label: t.nav.gallery, href: lang === 'en' ? '/en/gallery' : '/gallery' },
+  { label: t.nav.faq, href: (lang === 'en' ? '/en/' : '/') + '#faq' },
+];
+---
+
+<header id="site-navbar" class="fixed top-0 inset-x-0 z-50 transition-all duration-300 bg-transparent">
+  <nav class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="flex h-20 items-center justify-between">
+      <a href={lang === 'en' ? '/en/' : '/'} class="flex items-center gap-3" aria-label="CAC Montessori Madiun">
+        <img src="/images/logo.svg" alt="Logo CAC Montessori Madiun" width="140" height="42" class="h-10 w-auto" />
+      </a>
+
+      <ul class="hidden lg:flex items-center gap-8">
+        {navLinks.map((link) => (
+          <li>
+            <a href={link.href} class="text-sm font-medium text-text hover:text-primary transition-colors">
+              {link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+
+      <div class="hidden lg:flex items-center gap-4">
+        <a href={otherLangHref} class="text-sm font-medium text-text-muted hover:text-primary transition-colors">
+          {t.langSwitch}
+        </a>
+        <a href={lang === 'en' ? '/en/contact' : '/contact'} class="inline-flex items-center rounded-full bg-primary px-6 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-primary-hover">
+          {t.nav.contact}
+        </a>
+      </div>
+
+      <MobileMenu client:load locale={lang} />
+    </div>
+  </nav>
+</header>
+
+<script>
+  const navbar = document.getElementById('site-navbar');
+  function updateNavbar() {
+    if (!navbar) return;
+    if (window.scrollY > 20) {
+      navbar.classList.add('bg-background/95', 'backdrop-blur', 'shadow-sm');
+      navbar.classList.remove('bg-transparent');
+    } else {
+      navbar.classList.remove('bg-background/95', 'backdrop-blur', 'shadow-sm');
+      navbar.classList.add('bg-transparent');
+    }
+  }
+  updateNavbar();
+  window.addEventListener('scroll', updateNavbar, { passive: true });
+</script>

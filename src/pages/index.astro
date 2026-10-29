@@ -1,0 +1,34 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/layout/Navbar.astro';
+import Footer from '../components/layout/Footer.astro';
+import Hero from '../components/sections/Hero.astro';
+import Philosophy from '../components/sections/Philosophy.astro';
+import Programs from '../components/sections/Programs.astro';
+import MontessoriApproach from '../components/sections/MontessoriApproach.astro';
+import Activities from '../components/sections/Activities.astro';
+import Gallery from '../components/sections/Gallery.astro';
+import Admission from '../components/sections/Admission.astro';
+import FAQ from '../components/sections/FAQ.astro';
+import FinalCTA from '../components/sections/FinalCTA.astro';
+---
+
+<BaseLayout
+  title="CAC Montessori Madiun — A Nurturing Montessori Playschool"
+  description="CAC Montessori Madiun merupakan playschool berbasis Montessori untuk anak usia 1–6 tahun yang menghadirkan lingkungan belajar yang aman, hangat, dan mendukung perkembangan anak."
+  canonical="/"
+>
+  <Navbar />
+  <main>
+    <Hero />
+    <Philosophy />
+    <Programs />
+    <MontessoriApproach />
+    <Activities />
+    <Gallery />
+    <Admission />
+    <FAQ />
+    <FinalCTA />
+  </main>
+  <Footer />
+</BaseLayout>

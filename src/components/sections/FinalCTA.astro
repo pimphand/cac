@@ -1,0 +1,22 @@
+---
+import { getLangFromUrl, useTranslations } from '../../i18n/ui';
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<section class="bg-soft-yellow py-20 lg:py-28">
+  <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center">
+    <h2 class="font-display text-3xl font-semibold text-text sm:text-4xl">{t.finalCta.title}</h2>
+    <p class="mt-4 text-base leading-relaxed text-text-muted sm:text-lg">
+      {t.finalCta.description}
+    </p>
+    <div class="mt-8 flex flex-wrap justify-center gap-4">
+      <a href={lang === 'en' ? '/en/about' : '/about'} class="inline-flex items-center rounded-full bg-primary px-6 py-3 text-sm font-semibold text-white transition hover:bg-primary-hover">
+        {t.finalCta.ctaPrimary}
+      </a>
+      <a href={lang === 'en' ? '/en/contact' : '/contact'} class="inline-flex items-center rounded-full border border-primary px-6 py-3 text-sm font-semibold text-primary transition hover:bg-white">
+        {t.finalCta.ctaSecondary}
+      </a>
+    </div>
+  </div>
+</section>
